@@ -1,6 +1,6 @@
 class AirbenderService
   def get_members(nation)
-    get_url("/api/v1/characters?affiliation=#{nation}")
+    get_url("/api/v1/characters?affiliation=#{nation}&perPage=1000")
   end
 
   def conn
