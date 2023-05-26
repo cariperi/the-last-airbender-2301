@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe 'Search Index Page', type: :feature do
   describe 'Searching for Members' do
     before(:each) do
-      @all_members = AirbenderFacade.get_members(nation)
+      @all_members = AirbenderFacade.get_members('Fire+Nation')
 
       visit root_path
       select 'Fire Nation'
-      click_on 'Search for Members'
+      click_on 'Search For Members'
     end
 
     describe "When I visit the root path and select Fire Nation from the select field and click on Search for Members" do
@@ -32,7 +32,7 @@ RSpec.describe 'Search Index Page', type: :feature do
               expect(page).to have_content("None")
             else
               member.allies.each do |ally|
-                expect(page).to have_content(ally)
+                expect(page).to have_content(ally.strip)
               end
             end
 
@@ -40,17 +40,17 @@ RSpec.describe 'Search Index Page', type: :feature do
               expect(page).to have_content("None")
             else
               member.enemies.each do |enemy|
-                expect(page).to have_content(enemy)
+                expect(page).to have_content(enemy.strip)
               end
             end
 
-            expect(page).to have_content("No affiliations")
+            expect(page).to have_content(member.affiliation)
           end
         end
       end
 
       it 'shows member photos when a member photo is available' do
-        member = @all_members.first
+        member = @all_members.last
 
         within("#member-#{member.id}") do
           expect(page).to have_css('img')
