@@ -13,24 +13,18 @@
       <%= image_tag(member.photo) %>
     <% end %>
 
-    <% if member.allies.empty? %>
-      <p><b>Allies: </b>None</p>
-    <% else %>
+    <p><b>Allies:</b></p>
       <ul>
       <% member.allies.each do |ally| %>
         <li><%= ally %></li>
       <% end %>
       </ul>
-    <% end %>
 
-    <% if member.enemies.empty? %>
-      <p><b>Enemies: </b>None</p>
-    <% else %>
+    <p><b>Enemies:</b></p>
       <ul>
       <% member.enemies.each do |enemy| %>
         <li><%= enemy %></li>
       <% end %>
       </ul>
-    <% end %>
-  </div>
+  </div><br>
 <% end %>
