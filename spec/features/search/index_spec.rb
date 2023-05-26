@@ -28,20 +28,12 @@ RSpec.describe 'Search Index Page', type: :feature do
           within("#member-#{member.id}") do
             expect(page).to have_content(member.name)
 
-            if member.allies.empty?
-              expect(page).to have_content("None")
-            else
-              member.allies.each do |ally|
-                expect(page).to have_content(ally.strip)
-              end
+            member.allies.each do |ally|
+              expect(page).to have_content(ally.strip)
             end
 
-            if member.enemies.empty?
-              expect(page).to have_content("None")
-            else
-              member.enemies.each do |enemy|
-                expect(page).to have_content(enemy.strip)
-              end
+            member.enemies.each do |enemy|
+              expect(page).to have_content(enemy.strip)
             end
 
             expect(page).to have_content(member.affiliation)
