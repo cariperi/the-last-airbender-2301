@@ -9,6 +9,10 @@
     <p><b>Name:</b> <%= member.name %></p>
     <p><b>Affiliation:</b> <%= member.affiliation %></p>
 
+    <% if !member.photo.nil? %>
+      <%= image_tag(member.photo) %>
+    <% end %>
+
     <% if member.allies.empty? %>
       <p><b>Allies: </b>None</p>
     <% else %>
