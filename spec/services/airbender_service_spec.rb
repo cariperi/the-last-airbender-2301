@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Airbender Service' do
-  it 'returns the Airbender API response' do
+  it 'get_members(nation) method returns the Airbender API response' do
     members = AirbenderService.new.get_members('Fire+Nation')
-    # require 'pry'; binding.pry
 
     expect(members).to be_an(Array)
 
