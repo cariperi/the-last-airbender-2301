@@ -23,7 +23,7 @@ RSpec.describe 'Airbender Service' do
       expect(member[:affiliation]).to be_a(String)
     end
 
-    member = members.last
+    member = members.second
     expect(member).to have_key(:photoUrl)
     expect(member[:photoUrl]).to be_a(String)
   end

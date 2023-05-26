@@ -42,7 +42,7 @@ RSpec.describe 'Search Index Page', type: :feature do
       end
 
       it 'shows member photos when a member photo is available' do
-        member = @all_members.last
+        member = @all_members.second
 
         within("#member-#{member.id}") do
           expect(page).to have_css('img')
